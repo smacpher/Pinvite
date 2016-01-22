@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class SignUpViewController: UIViewController {
 
@@ -16,10 +17,17 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var txtConfirmPass: UITextField!
     
+    var actInd: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0,150,150)) as UIActivityIndicatorView
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.actInd.center = self.view.center
+        self.actInd.hidesWhenStopped = true
+        self.actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        
+        view.addSubview(self.actInd)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,5 +52,59 @@ class SignUpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: Actions
+    
+    
+    @IBAction func signUpAction(sender: AnyObject) {
+        
+        let username = self.txtUser.text
+        let password = self.txtPass.text
+        let confirmPassword = self.txtConfirmPass.text
+        
+        // signIn user
+        if ((password) != (confirmPassword)) {
+            
+            let alert = UIAlertController(title: "Passwords do not match", message: "Please ensure that passwords match", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Ok", style: .Default, handler:nil)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }else {
+            
+            self.actInd.startAnimating()
+            
+            let newUser = PFUser()
+            newUser.username = username
+            newUser.password = password
+            
+            newUser.signUpInBackgroundWithBlock({(succeed, error) -> Void in
+                
+                self.actInd.stopAnimating()
+                
+                if ((error) != nil) {
+                    
+                    let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
+                    let action = UIAlertAction(title: "Ok", style: .Default, handler:nil)
+                    alert.addAction(action)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                }else {
+                    self.performSegueWithIdentifier("gotoLogin", sender: self)
+                }
+                
+            
+            })
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
 
 }

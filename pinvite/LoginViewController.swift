@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
@@ -14,10 +15,17 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var txtPass: UITextField!
     
+    var actInd: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0,150,150)) as UIActivityIndicatorView
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.actInd.center = self.view.center
+        self.actInd.hidesWhenStopped = true
+        self.actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        
+        view.addSubview(self.actInd)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,11 +33,7 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func signInTapped(sender: UIButton) {
-        //authentication code
-    }
-
-    /*
+        /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -38,5 +42,44 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: Actions
+    
+    @IBAction func signInAction(sender: AnyObject) {
+        let username = self.txtUser.text
+        let password = self.txtPass.text
+        
+        // signIn user
+        
+        self.actInd.startAnimating()
+        
+        PFUser.logInWithUsernameInBackground(username!, password: password!, block: {(user, error) -> Void in
+            
+            self.actInd.stopAnimating()
+            
+            if ((user) != nil) {
+                self.dismissViewControllerAnimated(true, completion: nil)
+                
+            }else {
+                let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "Ok", style: .Default, handler:nil)
+                alert.addAction(action)
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            
+            
+            
+        })
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
 
 }

@@ -8,10 +8,10 @@
 
 import UIKit
 import MapKit
+import Parse
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var userLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +24,15 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.performSegueWithIdentifier("gotoLogin", sender: self)
+        if (PFUser.currentUser() == nil) {
+            self.performSegueWithIdentifier("gotoLogin", sender: self)
+        }
+        
     }
 
+    @IBAction func logoutAction(sender: AnyObject) {
+        PFUser.logOut()
+        self.performSegueWithIdentifier("gotoLogin", sender: self)
+    }
 }
 
