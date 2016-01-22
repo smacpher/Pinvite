@@ -13,6 +13,9 @@
 		E5A7C21D1C4F322B0005BCAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A7C21C1C4F322B0005BCAD /* Assets.xcassets */; };
 		E5A7C2201C4F322B0005BCAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5A7C21E1C4F322B0005BCAD /* LaunchScreen.storyboard */; };
 		E5A7C22B1C4F322B0005BCAD /* pinviteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A7C22A1C4F322B0005BCAD /* pinviteTests.swift */; };
+		E5A7C2361C4F32490005BCAD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A7C2351C4F32490005BCAD /* MapKit.framework */; };
+		E5A7C23A1C4FED190005BCAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A7C2391C4FED190005BCAD /* LoginViewController.swift */; };
+		E5A7C23C1C4FEF1B0005BCAD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A7C23B1C4FEF1B0005BCAD /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		E5A7C2261C4F322B0005BCAD /* pinviteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pinviteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A7C22A1C4F322B0005BCAD /* pinviteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pinviteTests.swift; sourceTree = "<group>"; };
 		E5A7C22C1C4F322B0005BCAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5A7C2351C4F32490005BCAD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E5A7C2391C4FED190005BCAD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E5A7C23B1C4FEF1B0005BCAD /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A7C2361C4F32490005BCAD /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +66,7 @@
 		E5A7C2091C4F322A0005BCAD = {
 			isa = PBXGroup;
 			children = (
+				E5A7C2351C4F32490005BCAD /* MapKit.framework */,
 				E5A7C2141C4F322A0005BCAD /* pinvite */,
 				E5A7C2291C4F322B0005BCAD /* pinviteTests */,
 				E5A7C2131C4F322A0005BCAD /* Products */,
@@ -83,6 +91,8 @@
 				E5A7C21C1C4F322B0005BCAD /* Assets.xcassets */,
 				E5A7C21E1C4F322B0005BCAD /* LaunchScreen.storyboard */,
 				E5A7C2211C4F322B0005BCAD /* Info.plist */,
+				E5A7C2391C4FED190005BCAD /* LoginViewController.swift */,
+				E5A7C23B1C4FEF1B0005BCAD /* SignUpViewController.swift */,
 			);
 			path = pinvite;
 			sourceTree = "<group>";
@@ -147,6 +157,11 @@
 					E5A7C2111C4F322A0005BCAD = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 7BT63EUF3D;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					E5A7C2251C4F322B0005BCAD = {
 						CreatedOnToolsVersion = 7.1;
@@ -199,7 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A7C23A1C4FED190005BCAD /* LoginViewController.swift in Sources */,
 				E5A7C2181C4F322B0005BCAD /* ViewController.swift in Sources */,
+				E5A7C23C1C4FEF1B0005BCAD /* SignUpViewController.swift in Sources */,
 				E5A7C2161C4F322A0005BCAD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +350,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.loofy.pinvite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -344,6 +362,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.loofy.pinvite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
