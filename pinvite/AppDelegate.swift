@@ -22,6 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("ssrhcSJfJYn5APAahXz1ZfgNj1BR3rr20ZkeoQ5I",
             clientKey: "Qq4jBgDvixVqLHBWgcWYem3vmXXZMZIRk6Nmm49i")
         
+        // NAVBAR
+        
+        //background
+        UINavigationBar.appearance().barTintColor = UIColor(red: 77/255.0, green: 188/255.0, blue: 233/255.0, alpha: 1)
+        
+        //elements
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         return true
     }

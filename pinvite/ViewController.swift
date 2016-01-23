@@ -12,11 +12,11 @@ import Parse
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var usernameLabel: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         if (PFUser.currentUser() == nil) {
             self.performSegueWithIdentifier("gotoLogin", sender: self)
         }else {
-            self.usernameLabel.text = "Welcome, " + (PFUser.currentUser()?.username)!
+            self.title = "Welcome, " + (PFUser.currentUser()?.username)!
         }
         
     }
