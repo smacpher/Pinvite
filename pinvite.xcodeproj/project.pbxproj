@@ -28,7 +28,8 @@
 		E5EADEAE1C52DEB400B5D2F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EADEAD1C52DEB400B5D2F3 /* SystemConfiguration.framework */; };
 		E5EADEB01C52DF4400B5D2F3 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EADEAF1C52DF4400B5D2F3 /* libz.1.dylib */; };
 		E5EADEB21C52DF8400B5D2F3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EADEB11C52DF8400B5D2F3 /* libsqlite3.dylib */; };
-		E5FA84F01C5405BB0069B682 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA84EF1C5405BB0069B682 /* SWRevealViewController.m */; };
+		E5FA84F61C5425160069B682 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA84F51C5425160069B682 /* SWRevealViewController.m */; };
+		E5FA84F81C5428570069B682 /* BackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA84F71C5428570069B682 /* BackTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +69,9 @@
 		E5EADEAF1C52DF4400B5D2F3 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		E5EADEB11C52DF8400B5D2F3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		E5FA84ED1C5405BA0069B682 /* pinvite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pinvite-Bridging-Header.h"; sourceTree = "<group>"; };
-		E5FA84EE1C5405BB0069B682 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		E5FA84EF1C5405BB0069B682 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		E5FA84F41C5425160069B682 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		E5FA84F51C5425160069B682 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		E5FA84F71C5428570069B682 /* BackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,9 +139,9 @@
 		E5A7C2141C4F322A0005BCAD /* pinvite */ = {
 			isa = PBXGroup;
 			children = (
-				E5FA84EE1C5405BB0069B682 /* SWRevealViewController.h */,
-				E5FA84EF1C5405BB0069B682 /* SWRevealViewController.m */,
 				E5A7C2151C4F322A0005BCAD /* AppDelegate.swift */,
+				E5FA84F41C5425160069B682 /* SWRevealViewController.h */,
+				E5FA84F51C5425160069B682 /* SWRevealViewController.m */,
 				E5A7C2171C4F322A0005BCAD /* ViewController.swift */,
 				E5A7C2191C4F322B0005BCAD /* Main.storyboard */,
 				E5A7C21C1C4F322B0005BCAD /* Assets.xcassets */,
@@ -148,6 +150,7 @@
 				E5A7C2391C4FED190005BCAD /* LoginViewController.swift */,
 				E5A7C23B1C4FEF1B0005BCAD /* SignUpViewController.swift */,
 				E5FA84ED1C5405BA0069B682 /* pinvite-Bridging-Header.h */,
+				E5FA84F71C5428570069B682 /* BackTableViewController.swift */,
 			);
 			path = pinvite;
 			sourceTree = "<group>";
@@ -271,8 +274,9 @@
 			files = (
 				E5A7C23A1C4FED190005BCAD /* LoginViewController.swift in Sources */,
 				E5A7C2181C4F322B0005BCAD /* ViewController.swift in Sources */,
-				E5FA84F01C5405BB0069B682 /* SWRevealViewController.m in Sources */,
+				E5FA84F61C5425160069B682 /* SWRevealViewController.m in Sources */,
 				E5A7C23C1C4FEF1B0005BCAD /* SignUpViewController.swift in Sources */,
+				E5FA84F81C5428570069B682 /* BackTableViewController.swift in Sources */,
 				E5A7C2161C4F322A0005BCAD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

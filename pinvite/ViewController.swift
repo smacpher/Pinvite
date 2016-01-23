@@ -13,10 +13,18 @@ import Parse
 class ViewController: UIViewController {
 
     
+    @IBOutlet weak var Open: UIBarButtonItem!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        //reveal stuff
+        Open.target = self.revealViewController()
+        Open.action = Selector("revealToggle:")
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
 
     override func didReceiveMemoryWarning() {

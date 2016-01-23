@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YvN-pl-e2Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eA0-If-NuP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -23,10 +23,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="r43-TA-LGV" secondAttribute="trailing" id="7w4-rD-5df"/>
-                            <constraint firstItem="r43-TA-LGV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="94t-1g-iIH"/>
-                            <constraint firstItem="r43-TA-LGV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QKf-hf-5IN"/>
-                            <constraint firstItem="r43-TA-LGV" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="tHZ-hy-0aZ"/>
+                            <constraint firstItem="r43-TA-LGV" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="E2P-In-E8I"/>
+                            <constraint firstAttribute="trailing" secondItem="r43-TA-LGV" secondAttribute="trailing" id="XFa-uD-2gF"/>
+                            <constraint firstItem="r43-TA-LGV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="eEP-JB-XiV"/>
+                            <constraint firstItem="r43-TA-LGV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="upU-Uu-2rm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hcE-41-StO">
@@ -38,6 +38,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="open" destination="kLo-NH-Aom" id="Np3-x9-gNV"/>
                         <segue destination="CJx-qU-Mkq" kind="presentation" identifier="gotoLogin" id="i9K-sE-ofB"/>
                     </connections>
                 </viewController>
@@ -240,22 +241,25 @@
             </objects>
             <point key="canvasLocation" x="1923" y="95"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Back Table View Controller-->
         <scene sceneID="du6-w2-pR7">
             <objects>
-                <tableViewController id="Dhi-pY-sFO" sceneMemberID="viewController">
+                <tableViewController id="Dhi-pY-sFO" customClass="BackTableViewController" customModule="pinvite" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rS0-dF-NdL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Xeh-QN-rnZ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Xeh-QN-rnZ">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xeh-QN-rnZ" id="56Q-0b-Vi5">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="EFD-hy-JYf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -282,8 +286,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="Dhi-pY-sFO" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="hCM-mI-J9V"/>
-                        <segue destination="YvN-pl-e2Y" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSeguePushController" id="QX1-dy-7A4"/>
+                        <segue destination="Dhi-pY-sFO" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="NHc-ii-2X6"/>
+                        <segue destination="YvN-pl-e2Y" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="xbi-fL-luy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFQ-w9-Co1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -306,7 +310,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="eyc-XY-Ss8"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="GR4-e6-Mkh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZ4-yC-waF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -314,4 +318,7 @@
             <point key="canvasLocation" x="355" y="-648"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GR4-e6-Mkh"/>
+    </inferredMetricsTieBreakers>
 </document>
