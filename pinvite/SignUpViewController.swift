@@ -90,7 +90,7 @@ class SignUpViewController: UIViewController {
                     self.presentViewController(alert, animated: true, completion: nil)
                     
                 }else {
-                    self.performSegueWithIdentifier("gotoLogin", sender: self)
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 
             

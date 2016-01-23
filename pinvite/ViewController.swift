@@ -12,6 +12,7 @@ import Parse
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,8 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         if (PFUser.currentUser() == nil) {
             self.performSegueWithIdentifier("gotoLogin", sender: self)
+        }else {
+            self.usernameLabel.text = "Welcome, " + (PFUser.currentUser()?.username)!
         }
         
     }
@@ -34,5 +37,7 @@ class ViewController: UIViewController {
         PFUser.logOut()
         self.performSegueWithIdentifier("gotoLogin", sender: self)
     }
+    
+    
 }
 
