@@ -38,6 +38,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="Open" destination="kLo-NH-Aom" id="PYp-3c-AoN"/>
+                        <outlet property="mapView" destination="r43-TA-LGV" id="ew1-JO-CXg"/>
                         <outlet property="open" destination="kLo-NH-Aom" id="Np3-x9-gNV"/>
                         <segue destination="CJx-qU-Mkq" kind="presentation" identifier="gotoLogin" id="i9K-sE-ofB"/>
                     </connections>

@@ -9,15 +9,30 @@
 import UIKit
 import MapKit
 import Parse
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     
     @IBOutlet weak var Open: UIBarButtonItem!
     
+    @IBOutlet weak var mapView: MKMapView!
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //user location
+        self.locationManager.delegate = self
+        
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        self.locationManager.startUpdatingLocation()
+        
+        self.mapView.showsUserLocation = true
         
         
         //reveal stuff
@@ -47,6 +62,34 @@ class ViewController: UIViewController {
         self.performSegueWithIdentifier("gotoLogin", sender: self)
 
     }
+    
+    
+    // MARK: - Location delegate methods
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let location = locations.last
+        
+        let center = CLLocationCoordinate2DMake((location!.coordinate.latitude), (location!.coordinate.longitude))
+        
+        
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+        
+        self.mapView.setRegion(region, animated: true)
+        
+        self.locationManager.stopUpdatingLocation()
+        
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        
+        let alert = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Ok", style: .Default, handler:nil)
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
     
 }
 
