@@ -30,6 +30,7 @@
 		E5EADEB21C52DF8400B5D2F3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EADEB11C52DF8400B5D2F3 /* libsqlite3.dylib */; };
 		E5FA84F61C5425160069B682 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA84F51C5425160069B682 /* SWRevealViewController.m */; };
 		E5FA84F81C5428570069B682 /* BackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA84F71C5428570069B682 /* BackTableViewController.swift */; };
+		E5FA84FA1C5462DF0069B682 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA84F91C5462DF0069B682 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		E5FA84F41C5425160069B682 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		E5FA84F51C5425160069B682 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		E5FA84F71C5428570069B682 /* BackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableViewController.swift; sourceTree = "<group>"; };
+		E5FA84F91C5462DF0069B682 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				E5A7C23B1C4FEF1B0005BCAD /* SignUpViewController.swift */,
 				E5FA84ED1C5405BA0069B682 /* pinvite-Bridging-Header.h */,
 				E5FA84F71C5428570069B682 /* BackTableViewController.swift */,
+				E5FA84F91C5462DF0069B682 /* ProfileViewController.swift */,
 			);
 			path = pinvite;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				E5A7C2181C4F322B0005BCAD /* ViewController.swift in Sources */,
 				E5FA84F61C5425160069B682 /* SWRevealViewController.m in Sources */,
 				E5A7C23C1C4FEF1B0005BCAD /* SignUpViewController.swift in Sources */,
+				E5FA84FA1C5462DF0069B682 /* ProfileViewController.swift in Sources */,
 				E5FA84F81C5428570069B682 /* BackTableViewController.swift in Sources */,
 				E5A7C2161C4F322A0005BCAD /* AppDelegate.swift in Sources */,
 			);
