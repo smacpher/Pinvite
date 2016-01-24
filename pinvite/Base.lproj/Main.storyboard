@@ -30,10 +30,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hcE-41-StO">
-                        <barButtonItem key="leftBarButtonItem" title="open" id="kLo-NH-Aom"/>
-                        <barButtonItem key="rightBarButtonItem" title="logout" id="8Nf-tv-zBS">
+                        <barButtonItem key="leftBarButtonItem" title="Open" id="kLo-NH-Aom"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="hO2-JQ-1UG">
                             <connections>
-                                <action selector="logoutAction:" destination="BYZ-38-t0r" id="uya-Ck-FgB"/>
+                                <action selector="LogoutAction:" destination="BYZ-38-t0r" id="4YM-96-OeZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -269,18 +269,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="yiT-PI-Cm1" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="tIY-QL-elo"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Logout" id="5oB-ja-Enc">
-                                <rect key="frame" x="0.0" y="116" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5oB-ja-Enc" id="cU2-8f-zPF">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="bSi-G6-Lzt" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="2vd-u7-kjF"/>
+                                    <segue destination="wvS-ke-nAW" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="vTG-fv-Sph"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -294,28 +283,26 @@
             </objects>
             <point key="canvasLocation" x="355" y="-1397"/>
         </scene>
-        <!--Profile View Controller-->
-        <scene sceneID="5Fl-bE-SJG">
+        <!--Navigation Controller-->
+        <scene sceneID="Dlt-pm-x9c">
             <objects>
-                <viewController id="bSi-G6-Lzt" customClass="ProfileViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="U1J-tA-nyI"/>
-                        <viewControllerLayoutGuide type="bottom" id="whe-ro-aAX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Gr9-ta-Mw4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jro-bW-ehD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="wvS-ke-nAW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Hv-03-r0N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yiT-PI-Cm1" kind="relationship" relationship="rootViewController" id="36H-bc-Phv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iTg-Tz-CTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="-2062"/>
+            <point key="canvasLocation" x="355" y="-2114"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile-->
         <scene sceneID="LmQ-yk-AoU">
             <objects>
-                <viewController id="yiT-PI-Cm1" sceneMemberID="viewController">
+                <viewController id="yiT-PI-Cm1" customClass="ProfileViewController" customModule="pinvite" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fdI-kC-Kpx"/>
                         <viewControllerLayoutGuide type="bottom" id="jkV-jl-YFi"/>
@@ -324,11 +311,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                     </view>
+                    <navigationItem key="navigationItem" title="Profile" id="GQA-9K-CIH">
+                        <barButtonItem key="leftBarButtonItem" title="Open" id="rDB-F8-bPk">
+                            <connections>
+                                <action selector="OpenAction:" destination="yiT-PI-Cm1" id="hn2-Wx-Wik"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="Open" destination="rDB-F8-bPk" id="HjZ-7T-MqO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IwC-dN-i5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="-1352"/>
+            <point key="canvasLocation" x="1029" y="-2114"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="UJ3-sv-dA2">

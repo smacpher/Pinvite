@@ -7,16 +7,18 @@
 //
 
 import Foundation
+import Parse
 
-class Profile: UIViewController {
+class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var Open: UIBarButtonItem!
     
     override func viewDidLoad() {
+        Open.target = self.revealViewController()
+        Open.action = Selector("revealToggle:")
+        
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
-    }
     
-    override func viewDidAppear(animated: Bool) {
-        
     }
 }

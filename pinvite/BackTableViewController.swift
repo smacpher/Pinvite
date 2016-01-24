@@ -7,14 +7,16 @@
 //
 
 import Foundation
-
+import Parse
 
 class BackTableViewController: UITableViewController {
+    
     
     var TableArray = [String]()
     
     override func viewDidLoad() {
-        TableArray = ["Home", "Profile", "Logout"]
+        TableArray = ["Home", "Profile"]
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,4 +31,14 @@ class BackTableViewController: UITableViewController {
         
         return cell
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

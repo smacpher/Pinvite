@@ -40,12 +40,13 @@ class ViewController: UIViewController {
         }
         
     }
-
-    @IBAction func logoutAction(sender: AnyObject) {
+    
+    @IBAction func LogoutAction(sender: AnyObject) {
+        
         PFUser.logOut()
         self.performSegueWithIdentifier("gotoLogin", sender: self)
+
     }
-    
     
 }
 
