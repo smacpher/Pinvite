@@ -8,17 +8,26 @@
 
 import Foundation
 import Parse
+import UIKit
 
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var Open: UIBarButtonItem!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //circular user profile picture
+        
+
+        
         Open.target = self.revealViewController()
+        
         Open.action = Selector("revealToggle:")
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
     
     }
+    
 }
