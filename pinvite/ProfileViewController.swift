@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
         Open.action = Selector("revealToggle:")
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
+    
     
     }
     

@@ -29,6 +29,10 @@ class BackTableViewController: UITableViewController {
         
         cell.textLabel?.text = TableArray[indexPath.row]
         
+        cell.textLabel?.textColor = UIColor.whiteColor()
+        
+        cell.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0) //transparent
+        
         return cell
     }
     

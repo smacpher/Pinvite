@@ -22,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("ssrhcSJfJYn5APAahXz1ZfgNj1BR3rr20ZkeoQ5I",
             clientKey: "Qq4jBgDvixVqLHBWgcWYem3vmXXZMZIRk6Nmm49i")
         
+        //Status bar
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         // NAVBAR
         
         //background
