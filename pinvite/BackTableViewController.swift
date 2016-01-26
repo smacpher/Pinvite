@@ -15,7 +15,7 @@ class BackTableViewController: UITableViewController {
     var TableArray = [String]()
     
     override func viewDidLoad() {
-        TableArray = ["Home", "Profile"]
+        TableArray = ["Home", "Profile", "Logout"]
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
@@ -35,14 +35,11 @@ class BackTableViewController: UITableViewController {
         
         return cell
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let logoutIndex = 2
+        if indexPath.row == logoutIndex{
+            PFUser.logOut()
+        }
+    }
 }

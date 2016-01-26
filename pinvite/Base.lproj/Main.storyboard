@@ -32,11 +32,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="hcE-41-StO">
                         <barButtonItem key="leftBarButtonItem" title="Open" id="kLo-NH-Aom"/>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="hO2-JQ-1UG">
-                            <connections>
-                                <action selector="LogoutAction:" destination="BYZ-38-t0r" id="4YM-96-OeZ"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="Open" destination="kLo-NH-Aom" id="PYp-3c-AoN"/>
@@ -290,6 +285,17 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="wvS-ke-nAW" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="vTG-fv-Sph"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Logout" id="M4V-a6-8Zg">
+                                <rect key="frame" x="0.0" y="116" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="M4V-a6-8Zg" id="q0B-gd-fgc">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="YvN-pl-e2Y" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="dmD-vf-QUI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

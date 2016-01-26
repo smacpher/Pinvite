@@ -22,7 +22,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if (PFUser.currentUser() == nil) {
+            self.performSegueWithIdentifier("gotoLogin", sender: self)
+        }
         //user location
         self.locationManager.delegate = self
         
@@ -54,13 +56,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             self.title = "Welcome, " + (PFUser.currentUser()?.username)!
         }
         
-    }
-    
-    @IBAction func LogoutAction(sender: AnyObject) {
-        
-        PFUser.logOut()
-        self.performSegueWithIdentifier("gotoLogin", sender: self)
-
     }
     
     
