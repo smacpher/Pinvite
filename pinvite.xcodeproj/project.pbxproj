@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		E5356CB51C556A7100B8F67B /* pinviteLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E5356CB41C556A7100B8F67B /* pinviteLogo.png */; };
 		E5356CB71C556CE700B8F67B /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = E5356CB61C556CE700B8F67B /* pin.png */; };
+		E57FB1C31C57DA1400CC907F /* addEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FB1C21C57DA1400CC907F /* addEventViewController.swift */; };
 		E5936B861C5722600023B1CF /* defaultProfileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E5936B851C5722600023B1CF /* defaultProfileImage.png */; };
+		E5936B881C574B500023B1CF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5936B871C574B500023B1CF /* LocationManager.swift */; };
 		E5A7C2161C4F322A0005BCAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A7C2151C4F322A0005BCAD /* AppDelegate.swift */; };
 		E5A7C2181C4F322B0005BCAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A7C2171C4F322A0005BCAD /* ViewController.swift */; };
 		E5A7C21B1C4F322B0005BCAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5A7C2191C4F322B0005BCAD /* Main.storyboard */; };
@@ -50,7 +52,9 @@
 /* Begin PBXFileReference section */
 		E5356CB41C556A7100B8F67B /* pinviteLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinviteLogo.png; sourceTree = "<group>"; };
 		E5356CB61C556CE700B8F67B /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		E57FB1C21C57DA1400CC907F /* addEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addEventViewController.swift; sourceTree = "<group>"; };
 		E5936B851C5722600023B1CF /* defaultProfileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultProfileImage.png; sourceTree = "<group>"; };
+		E5936B871C574B500023B1CF /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E5A7C2121C4F322A0005BCAD /* pinvite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pinvite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A7C2151C4F322A0005BCAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A7C2171C4F322A0005BCAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,10 +154,12 @@
 			isa = PBXGroup;
 			children = (
 				E5A7C2151C4F322A0005BCAD /* AppDelegate.swift */,
+				E5936B871C574B500023B1CF /* LocationManager.swift */,
 				E5FA84F41C5425160069B682 /* SWRevealViewController.h */,
 				E5FA84F51C5425160069B682 /* SWRevealViewController.m */,
 				E5A7C2171C4F322A0005BCAD /* ViewController.swift */,
 				E5A7C2191C4F322B0005BCAD /* Main.storyboard */,
+				E57FB1C21C57DA1400CC907F /* addEventViewController.swift */,
 				E5356CB41C556A7100B8F67B /* pinviteLogo.png */,
 				E5A7C21C1C4F322B0005BCAD /* Assets.xcassets */,
 				E5A7C21E1C4F322B0005BCAD /* LaunchScreen.storyboard */,
@@ -298,6 +304,8 @@
 				E5FA84FA1C5462DF0069B682 /* ProfileViewController.swift in Sources */,
 				E5FA84F81C5428570069B682 /* BackTableViewController.swift in Sources */,
 				E5A7C2161C4F322A0005BCAD /* AppDelegate.swift in Sources */,
+				E5936B881C574B500023B1CF /* LocationManager.swift in Sources */,
+				E57FB1C31C57DA1400CC907F /* addEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

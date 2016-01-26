@@ -11,8 +11,10 @@ import MapKit
 import Parse
 import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate {
 
+    
+    @IBOutlet weak var pinButton: UIButton!
     
     @IBOutlet weak var Open: UIBarButtonItem!
     
@@ -25,6 +27,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         if (PFUser.currentUser() == nil) {
             self.performSegueWithIdentifier("gotoLogin", sender: self)
         }
+        
+        //pin button configuration
+        pinButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        
+        
+        
         //user location
         self.locationManager.delegate = self
         
@@ -44,6 +52,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
 
+    //add event image tapped function
+    
+    @IBAction func addEventTapped(sender: AnyObject) {
+        self.performSegueWithIdentifier("addEventPopover", sender: self)
+    }
+    
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,6 +73,45 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
         
     }
+    
+    
+    
+    // MARK: UIPopover Delegate
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "addEventPopover" {
+            
+            let vc = segue.destinationViewController 
+            
+            let controller = vc.popoverPresentationController
+            
+            if controller != nil {
+                controller?.delegate = self
+            }
+        }
+        
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        
+        return .None
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     // MARK: - Location delegate methods

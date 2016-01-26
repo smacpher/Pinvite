@@ -76,6 +76,9 @@ class ProfileContainerViewController: UIViewController, UIImagePickerControllerD
         
         PFUser.currentUser()?.saveInBackground()
         
+        //update image
+        self.UserImage.image = scaledImage
+        
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
