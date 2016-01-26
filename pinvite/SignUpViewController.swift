@@ -90,6 +90,18 @@ class SignUpViewController: UIViewController {
                     self.presentViewController(alert, animated: true, completion: nil)
                     
                 }else {
+                    let imageName: String = "defaultProfileImage.png"
+                    
+                    let imagePNG = UIImage(named: imageName)
+                    
+                    let imageData = UIImagePNGRepresentation(imagePNG!)
+                    
+                    let imageFile:PFFile = PFFile(data: imageData!)!
+                    
+                    newUser.setObject(imageFile, forKey: "profilePicture")
+                    
+                    newUser.saveInBackground()
+                    
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 

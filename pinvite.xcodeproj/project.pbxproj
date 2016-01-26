@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E5356CB51C556A7100B8F67B /* pinviteLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E5356CB41C556A7100B8F67B /* pinviteLogo.png */; };
 		E5356CB71C556CE700B8F67B /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = E5356CB61C556CE700B8F67B /* pin.png */; };
+		E5936B861C5722600023B1CF /* defaultProfileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E5936B851C5722600023B1CF /* defaultProfileImage.png */; };
 		E5A7C2161C4F322A0005BCAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A7C2151C4F322A0005BCAD /* AppDelegate.swift */; };
 		E5A7C2181C4F322B0005BCAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A7C2171C4F322A0005BCAD /* ViewController.swift */; };
 		E5A7C21B1C4F322B0005BCAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5A7C2191C4F322B0005BCAD /* Main.storyboard */; };
@@ -30,7 +31,6 @@
 		E5EADEAE1C52DEB400B5D2F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EADEAD1C52DEB400B5D2F3 /* SystemConfiguration.framework */; };
 		E5EADEB01C52DF4400B5D2F3 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EADEAF1C52DF4400B5D2F3 /* libz.1.dylib */; };
 		E5EADEB21C52DF8400B5D2F3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EADEB11C52DF8400B5D2F3 /* libsqlite3.dylib */; };
-		E5ED16D11C55540800963BCC /* defualtProfileImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E5ED16D01C55540800963BCC /* defualtProfileImage.jpg */; };
 		E5ED16D31C55584500963BCC /* ProfileContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED16D21C55584500963BCC /* ProfileContainerViewController.swift */; };
 		E5FA84F61C5425160069B682 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA84F51C5425160069B682 /* SWRevealViewController.m */; };
 		E5FA84F81C5428570069B682 /* BackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA84F71C5428570069B682 /* BackTableViewController.swift */; };
@@ -50,6 +50,7 @@
 /* Begin PBXFileReference section */
 		E5356CB41C556A7100B8F67B /* pinviteLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinviteLogo.png; sourceTree = "<group>"; };
 		E5356CB61C556CE700B8F67B /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		E5936B851C5722600023B1CF /* defaultProfileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultProfileImage.png; sourceTree = "<group>"; };
 		E5A7C2121C4F322A0005BCAD /* pinvite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pinvite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A7C2151C4F322A0005BCAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A7C2171C4F322A0005BCAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		E5EADEAD1C52DEB400B5D2F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E5EADEAF1C52DF4400B5D2F3 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		E5EADEB11C52DF8400B5D2F3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
-		E5ED16D01C55540800963BCC /* defualtProfileImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defualtProfileImage.jpg; sourceTree = "<group>"; };
 		E5ED16D21C55584500963BCC /* ProfileContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewController.swift; sourceTree = "<group>"; };
 		E5FA84ED1C5405BA0069B682 /* pinvite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pinvite-Bridging-Header.h"; sourceTree = "<group>"; };
 		E5FA84F41C5425160069B682 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -163,8 +163,8 @@
 				E5FA84ED1C5405BA0069B682 /* pinvite-Bridging-Header.h */,
 				E5FA84F71C5428570069B682 /* BackTableViewController.swift */,
 				E5FA84F91C5462DF0069B682 /* ProfileViewController.swift */,
+				E5936B851C5722600023B1CF /* defaultProfileImage.png */,
 				E5356CB61C556CE700B8F67B /* pin.png */,
-				E5ED16D01C55540800963BCC /* defualtProfileImage.jpg */,
 				E5ED16D21C55584500963BCC /* ProfileContainerViewController.swift */,
 			);
 			path = pinvite;
@@ -271,8 +271,8 @@
 				E5A7C21D1C4F322B0005BCAD /* Assets.xcassets in Resources */,
 				E5A7C21B1C4F322B0005BCAD /* Main.storyboard in Resources */,
 				E5356CB71C556CE700B8F67B /* pin.png in Resources */,
-				E5ED16D11C55540800963BCC /* defualtProfileImage.jpg in Resources */,
 				E5356CB51C556A7100B8F67B /* pinviteLogo.png in Resources */,
+				E5936B861C5722600023B1CF /* defaultProfileImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 import Foundation
 import Parse
-
+import UIKit
 
 class ProfileContainerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -29,6 +29,17 @@ class ProfileContainerViewController: UIViewController, UIImagePickerControllerD
         UserImage.layer.borderWidth = 3
         
         Username.text = PFUser.currentUser()?.username
+        
+        if (PFUser.currentUser()!["profilePicture"]) != nil{
+            let profileImage:PFFile = PFUser.currentUser()!["profilePicture"] as! PFFile
+            
+            profileImage.getDataInBackgroundWithBlock{ (imageData:NSData?, error:NSError?)->Void in
+                if (error == nil){
+                    let profileImage:UIImage = UIImage(data: (imageData)!)!
+                    self.UserImage.image = profileImage
+                }
+            }
+        }
         
     }
     
@@ -53,14 +64,30 @@ class ProfileContainerViewController: UIViewController, UIImagePickerControllerD
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        UserImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         
-        UserImage.contentMode = UIViewContentMode.ScaleAspectFit
+        let scaledImage = self.scaleImageWith(chosenImage!, and: CGSizeMake(150,150))
+        
+        let imageData = UIImagePNGRepresentation((scaledImage))
+        
+        let imageFile:PFFile = PFFile(data: imageData!)!
+        
+        PFUser.currentUser()?.setObject(imageFile, forKey: "profilePicture")
+        
+        PFUser.currentUser()?.saveInBackground()
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     
-    
+    func scaleImageWith(image: UIImage, and newSize:CGSize)->UIImage{
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        image.drawInRect(CGRectMake(0,0,newSize.width, newSize.height))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
     
 }

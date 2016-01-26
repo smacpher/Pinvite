@@ -17,10 +17,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //circular user profile picture
-        
-
-        
         Open.target = self.revealViewController()
         
         Open.action = Selector("revealToggle:")
