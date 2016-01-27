@@ -37,6 +37,12 @@
                                     <action selector="addEventTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D8b-UY-cqt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVH-qS-WZE">
+                                <rect key="frame" x="20" y="559" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -54,6 +60,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="Open" destination="kLo-NH-Aom" id="PYp-3c-AoN"/>
+                        <outlet property="addressLabel" destination="FVH-qS-WZE" id="8lf-SJ-m1J"/>
                         <outlet property="mapView" destination="r43-TA-LGV" id="ew1-JO-CXg"/>
                         <outlet property="pinButton" destination="hoK-Pa-mXr" id="KXd-1I-qsk"/>
                         <segue destination="CJx-qU-Mkq" kind="presentation" identifier="gotoLogin" id="i9K-sE-ofB"/>

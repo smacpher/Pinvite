@@ -16,6 +16,7 @@ class BackTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         TableArray = ["Home", "Profile", "Logout"]
+        
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
