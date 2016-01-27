@@ -100,6 +100,7 @@ class SignUpViewController: UIViewController {
                     
                     newUser.setObject(imageFile, forKey: "profilePicture")
                     
+                    
                     newUser.saveInBackground()
                     
                     self.dismissViewControllerAnimated(true, completion: nil)

@@ -13,6 +13,9 @@ import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate {
 
+    @IBOutlet weak var address1: UILabel!
+    
+    @IBOutlet weak var address2: UILabel!
     
     @IBOutlet weak var pinButton: UIButton!
     
@@ -21,6 +24,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
+    
+    var geoCoder: CLGeocoder!
+    
+    var previousAddress: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +43,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         //user location
         self.locationManager.delegate = self
         
+        self.mapView.delegate = self
+        
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         self.locationManager.requestWhenInUseAuthorization()
@@ -44,6 +53,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         self.mapView.showsUserLocation = true
         
+        geoCoder = CLGeocoder()
         
         //reveal stuff
         Open.target = self.revealViewController()
@@ -51,9 +61,48 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
-
-    //add event image tapped function
     
+    
+    func geoCode(location: CLLocation!) {
+        
+        geoCoder.cancelGeocode()
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (data, error) -> Void in
+            guard let placeMarks = data as [CLPlacemark]! else {
+                return
+            }
+            let loc: CLPlacemark = placeMarks[0]
+            let addressDict: [NSString:NSObject] = loc.addressDictionary as! [NSString:NSObject]
+            let addrList = addressDict["FormattedAddressLines"] as! [String]
+            
+            let addrList1: Array<String> = Array(addrList[0..<addrList.count/2])
+            let addrList2: Array<String> = Array(addrList[addrList.count/2..<addrList.count])
+            
+            let address = addrList.joinWithSeparator(", ")
+            
+            let address1 = addrList1.joinWithSeparator(", ")
+            
+            let address2 = addrList2.joinWithSeparator((", "))
+            
+            self.address1.text = address1
+            
+            self.address2.text = address2
+            
+            self.previousAddress = address
+            
+        })
+    }
+    
+    
+    
+    //pin's location
+    //updates the address label based on center point of mapview
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let location = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        geoCode(location)
+    }
+    
+    //add event image tapped function
+
     @IBAction func addEventTapped(sender: AnyObject) {
         self.performSegueWithIdentifier("addEventPopover", sender: self)
     }
@@ -69,11 +118,58 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         if (PFUser.currentUser() == nil) {
             self.performSegueWithIdentifier("gotoLogin", sender: self)
         }else {
+            PFGeoPoint.geoPointForCurrentLocationInBackground {
+                (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
+                if error == nil {
+                    PFUser.currentUser()!.setObject(geoPoint!, forKey: "location")
+                    PFUser.currentUser()!.saveInBackground()
+                    
+                    let userGeoPoint = PFUser.currentUser()!["location"] as! PFGeoPoint
+                    
+                    print(userGeoPoint)
+                    let query = PFQuery(className: "event")
+                    
+                    
+                    query.whereKey("location", nearGeoPoint: userGeoPoint)
+                    
+                    query.limit = 10
+                    
+                    query.findObjectsInBackgroundWithBlock({(objects, error)-> Void in
+                        
+                        if error == nil {
+                            let eventList = objects!
+                            
+                            for event in eventList{
+                                
+                                let location = event["location"]
+                                let name = event["name"] as! String
+                                
+                                let coord = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+                                
+                                let annotation = MKPointAnnotation()
+                                annotation.coordinate = coord
+                                annotation.title = name
+                                self.mapView.addAnnotation(annotation)
+                                
+                            }
+                            
+                        }else{
+                            print(error)
+                        }
+                    })
+
+                }else{
+
+                    print(error)
+                }
+            }
+            
             self.title = "Welcome, " + (PFUser.currentUser()?.username)!
+            
         }
-        
     }
     
+    //passing data from popover
     
     
     // MARK: UIPopover Delegate
@@ -82,9 +178,16 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         if segue.identifier == "addEventPopover" {
             
-            let vc = segue.destinationViewController 
+            let vc:addEventViewController = segue.destinationViewController as! addEventViewController
+            
+            vc.eventLocation = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+            
+            
+            vc.address1 = self.address1.text
+            vc.address2 = self.address2.text
             
             let controller = vc.popoverPresentationController
+
             
             if controller != nil {
                 controller?.delegate = self
@@ -99,21 +202,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     // MARK: - Location delegate methods
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -122,10 +210,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         let center = CLLocationCoordinate2DMake((location!.coordinate.latitude), (location!.coordinate.longitude))
         
-        
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
         
         self.mapView.setRegion(region, animated: true)
+        
         
         self.locationManager.stopUpdatingLocation()
         
@@ -139,6 +227,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
+
+    
     
     
 }
