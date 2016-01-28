@@ -43,6 +43,7 @@ class addEventViewController: UIViewController, UIPopoverPresentationControllerD
         newEvent["location"] = point
         newEvent["parent"] = user
         newEvent.saveInBackground()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidLoad() {

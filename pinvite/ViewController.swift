@@ -126,9 +126,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     
                     let userGeoPoint = PFUser.currentUser()!["location"] as! PFGeoPoint
                     
-                    print(userGeoPoint)
                     let query = PFQuery(className: "event")
-                    
                     
                     query.whereKey("location", nearGeoPoint: userGeoPoint)
                     
@@ -149,6 +147,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                                 let annotation = MKPointAnnotation()
                                 annotation.coordinate = coord
                                 annotation.title = name
+                                
                                 self.mapView.addAnnotation(annotation)
                                 
                             }
@@ -169,7 +168,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
-    //passing data from popover
     
     
     // MARK: UIPopover Delegate
@@ -227,9 +225,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
-
     
+    // MARK: -mapView delegate methods
     
+    //override annotation stuff
     
 }
-
