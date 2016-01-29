@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5281C241C5ADDFA0029EF22 /* myEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5281C231C5ADDFA0029EF22 /* myEventsViewController.swift */; };
+		E5281C261C5B07370029EF22 /* eventTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5281C251C5B07370029EF22 /* eventTableCell.xib */; };
+		E5281C2E1C5B0A8B0029EF22 /* eventTableCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5281C2D1C5B0A8B0029EF22 /* eventTableCellClass.swift */; };
 		E5356CB51C556A7100B8F67B /* pinviteLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E5356CB41C556A7100B8F67B /* pinviteLogo.png */; };
 		E5356CB71C556CE700B8F67B /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = E5356CB61C556CE700B8F67B /* pin.png */; };
 		E57FB1C31C57DA1400CC907F /* addEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57FB1C21C57DA1400CC907F /* addEventViewController.swift */; };
@@ -50,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5281C231C5ADDFA0029EF22 /* myEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myEventsViewController.swift; sourceTree = "<group>"; };
+		E5281C251C5B07370029EF22 /* eventTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventTableCell.xib; sourceTree = "<group>"; };
+		E5281C2D1C5B0A8B0029EF22 /* eventTableCellClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventTableCellClass.swift; sourceTree = "<group>"; };
 		E5356CB41C556A7100B8F67B /* pinviteLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinviteLogo.png; sourceTree = "<group>"; };
 		E5356CB61C556CE700B8F67B /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		E57FB1C21C57DA1400CC907F /* addEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addEventViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 				E5FA84F51C5425160069B682 /* SWRevealViewController.m */,
 				E5A7C2171C4F322A0005BCAD /* ViewController.swift */,
 				E5A7C2191C4F322B0005BCAD /* Main.storyboard */,
+				E5281C2D1C5B0A8B0029EF22 /* eventTableCellClass.swift */,
+				E5281C251C5B07370029EF22 /* eventTableCell.xib */,
+				E5281C231C5ADDFA0029EF22 /* myEventsViewController.swift */,
 				E57FB1C21C57DA1400CC907F /* addEventViewController.swift */,
 				E5356CB41C556A7100B8F67B /* pinviteLogo.png */,
 				E5A7C21C1C4F322B0005BCAD /* Assets.xcassets */,
@@ -274,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5A7C2201C4F322B0005BCAD /* LaunchScreen.storyboard in Resources */,
+				E5281C261C5B07370029EF22 /* eventTableCell.xib in Resources */,
 				E5A7C21D1C4F322B0005BCAD /* Assets.xcassets in Resources */,
 				E5A7C21B1C4F322B0005BCAD /* Main.storyboard in Resources */,
 				E5356CB71C556CE700B8F67B /* pin.png in Resources */,
@@ -300,11 +310,13 @@
 				E5A7C2181C4F322B0005BCAD /* ViewController.swift in Sources */,
 				E5ED16D31C55584500963BCC /* ProfileContainerViewController.swift in Sources */,
 				E5FA84F61C5425160069B682 /* SWRevealViewController.m in Sources */,
+				E5281C2E1C5B0A8B0029EF22 /* eventTableCellClass.swift in Sources */,
 				E5A7C23C1C4FEF1B0005BCAD /* SignUpViewController.swift in Sources */,
 				E5FA84FA1C5462DF0069B682 /* ProfileViewController.swift in Sources */,
 				E5FA84F81C5428570069B682 /* BackTableViewController.swift in Sources */,
 				E5A7C2161C4F322A0005BCAD /* AppDelegate.swift in Sources */,
 				E5936B881C574B500023B1CF /* LocationManager.swift in Sources */,
+				E5281C241C5ADDFA0029EF22 /* myEventsViewController.swift in Sources */,
 				E57FB1C31C57DA1400CC907F /* addEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

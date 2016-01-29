@@ -15,21 +15,11 @@ class ProfileContainerViewController: UIViewController, UIImagePickerControllerD
     
     @IBOutlet weak var UserImage: UIImageView!
     
-    @IBOutlet weak var Username: UITextField!
+    
+    @IBOutlet weak var Username: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UserImage.layer.cornerRadius = UserImage.frame.size.width/2
-        
-        UserImage.clipsToBounds = true
-        
-        UserImage.layer.borderColor = UIColor.grayColor().CGColor
-        
-        UserImage.layer.borderWidth = 3
-        
-        Username.text = PFUser.currentUser()?.username
-        
         if (PFUser.currentUser()!["profilePicture"]) != nil{
             let profileImage:PFFile = PFUser.currentUser()!["profilePicture"] as! PFFile
             
@@ -40,6 +30,17 @@ class ProfileContainerViewController: UIViewController, UIImagePickerControllerD
                 }
             }
         }
+
+        UserImage.layer.cornerRadius = UserImage.frame.size.width/2
+        
+        UserImage.clipsToBounds = true
+        
+        UserImage.layer.borderColor = UIColor.grayColor().CGColor
+        
+        UserImage.layer.borderWidth = 3
+        
+        self.Username.text = PFUser.currentUser()?.username
+        
         
     }
     

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kWm-VX-Cic" customClass="eventTableCellClass" customModule="pinvite" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kWm-VX-Cic" id="zsE-yw-t5w">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86A-go-Eiz">
+                        <rect key="frame" x="112" y="0.0" width="156" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cd2-VH-6Eb">
+                        <rect key="frame" x="61" y="22" width="259" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="wVw-BW-JMe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYp-so-SPM">
+                        <rect key="frame" x="8" y="0.0" width="34" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cd2-VH-6Eb" firstAttribute="leading" secondItem="zsE-yw-t5w" secondAttribute="leadingMargin" constant="53" id="FWW-Zh-8Uo"/>
+                    <constraint firstItem="86A-go-Eiz" firstAttribute="leading" secondItem="sYp-so-SPM" secondAttribute="trailing" constant="70" id="Ib1-gt-kjb"/>
+                    <constraint firstAttribute="trailing" secondItem="cd2-VH-6Eb" secondAttribute="trailing" id="P4V-N7-PiC"/>
+                    <constraint firstItem="sYp-so-SPM" firstAttribute="leading" secondItem="zsE-yw-t5w" secondAttribute="leadingMargin" id="Uor-f4-rO8"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="86A-go-Eiz" secondAttribute="trailing" constant="44" id="YoK-sK-Hit"/>
+                    <constraint firstItem="sYp-so-SPM" firstAttribute="firstBaseline" secondItem="86A-go-Eiz" secondAttribute="firstBaseline" id="Zlk-LW-10M"/>
+                    <constraint firstItem="cd2-VH-6Eb" firstAttribute="top" secondItem="86A-go-Eiz" secondAttribute="bottom" constant="1" id="dbI-VM-Jkc"/>
+                    <constraint firstItem="sYp-so-SPM" firstAttribute="baseline" secondItem="86A-go-Eiz" secondAttribute="baseline" id="gqU-J5-MFY"/>
+                    <constraint firstItem="86A-go-Eiz" firstAttribute="top" secondItem="zsE-yw-t5w" secondAttribute="top" id="oLQ-V9-QGZ"/>
+                    <constraint firstItem="86A-go-Eiz" firstAttribute="centerX" secondItem="cd2-VH-6Eb" secondAttribute="centerX" id="q7o-Oh-cHT"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="cd2-VH-6Eb" secondAttribute="bottom" constant="-7.5" id="qnw-ZJ-mOL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="eventLabel" destination="86A-go-Eiz" id="SyK-sf-isE"/>
+                <outlet property="locationLabel" destination="cd2-VH-6Eb" id="yp9-3G-0gt"/>
+                <outlet property="userLabel" destination="sYp-so-SPM" id="DAB-dM-YL2"/>
+            </connections>
+            <point key="canvasLocation" x="297" y="211"/>
+        </tableViewCell>
+    </objects>
+</document>

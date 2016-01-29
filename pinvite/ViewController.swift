@@ -13,6 +13,8 @@ import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate {
 
+    @IBOutlet weak var navBar: UINavigationItem!
+    
     @IBOutlet weak var address1: UILabel!
     
     @IBOutlet weak var address2: UILabel!
@@ -39,7 +41,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         pinButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
         
         
-        
         //user location
         self.locationManager.delegate = self
         
@@ -60,6 +61,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         Open.action = Selector("revealToggle:")
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        
+        
     }
     
     
@@ -92,12 +96,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         })
     }
     
-    
-    
+
     //pin's location
     //updates the address label based on center point of mapview
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let location = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        if PFUser.currentUser() != nil{
+            updateEventPins()
+        }
         geoCode(location)
     }
     
@@ -118,51 +124,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         if (PFUser.currentUser() == nil) {
             self.performSegueWithIdentifier("gotoLogin", sender: self)
         }else {
-            PFGeoPoint.geoPointForCurrentLocationInBackground {
-                (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
-                if error == nil {
-                    PFUser.currentUser()!.setObject(geoPoint!, forKey: "location")
-                    PFUser.currentUser()!.saveInBackground()
-                    
-                    let userGeoPoint = PFUser.currentUser()!["location"] as! PFGeoPoint
-                    
-                    let query = PFQuery(className: "event")
-                    
-                    query.whereKey("location", nearGeoPoint: userGeoPoint)
-                    
-                    query.limit = 10
-                    
-                    query.findObjectsInBackgroundWithBlock({(objects, error)-> Void in
-                        
-                        if error == nil {
-                            let eventList = objects!
-                            
-                            for event in eventList{
-                                
-                                let location = event["location"]
-                                let name = event["name"] as! String
-                                
-                                let coord = CLLocationCoordinate2DMake(location.latitude, location.longitude)
-                                
-                                let annotation = MKPointAnnotation()
-                                annotation.coordinate = coord
-                                annotation.title = name
-                                
-                                self.mapView.addAnnotation(annotation)
-                                
-                            }
-                            
-                        }else{
-                            print(error)
-                        }
-                    })
-
-                }else{
-
-                    print(error)
-                }
-            }
-            
             self.title = "Welcome, " + (PFUser.currentUser()?.username)!
             
         }
@@ -194,6 +155,53 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
     }
     
+    func updateEventPins(){
+        PFGeoPoint.geoPointForCurrentLocationInBackground {
+            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
+            if error == nil {
+                PFUser.currentUser()!.setObject(geoPoint!, forKey: "location")
+                PFUser.currentUser()!.saveInBackground()
+                
+                let userGeoPoint = PFUser.currentUser()!["location"] as! PFGeoPoint
+                
+                let query = PFQuery(className: "event")
+                
+                query.whereKey("location", nearGeoPoint: userGeoPoint)
+                
+                query.limit = 10
+                
+                query.findObjectsInBackgroundWithBlock({(objects, error)-> Void in
+                    
+                    if error == nil {
+                        let eventList = objects!
+                        
+                        for event in eventList{
+                            
+                            let location = event["location"]
+                            let name = event["name"] as! String
+                            
+                            let coord = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+                            
+                            let annotation = MKPointAnnotation()
+                            annotation.coordinate = coord
+                            annotation.title = name
+                            
+                            self.mapView.addAnnotation(annotation)
+                            
+                        }
+                        
+                    }else{
+                        print(error)
+                    }
+                })
+                
+            }else{
+                
+                print(error)
+            }
+        }
+
+    }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         
         return .None

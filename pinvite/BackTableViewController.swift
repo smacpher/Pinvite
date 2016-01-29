@@ -28,8 +28,13 @@ class BackTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(TableArray[indexPath.row], forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel?.text = TableArray[indexPath.row]
+        cell.textLabel?.font = UIFont(name: "Futura", size: 17)
         
-        cell.textLabel?.textColor = UIColor.whiteColor()
+        if cell.textLabel?.text == "Logout" {
+            cell.textLabel?.textColor = UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 0.75)
+        }else{
+            cell.textLabel?.textColor = UIColor.whiteColor()
+        }
         
         cell.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0) //transparent
         
