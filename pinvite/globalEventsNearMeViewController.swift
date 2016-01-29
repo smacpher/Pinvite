@@ -1,27 +1,22 @@
-//
-//  myEventsViewController.swift
-//  pinvite
-//
-//  Created by Sean MacPherson on 1/28/16.
-//  Copyright © 2016 loofy. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import Parse
 import CoreLocation
-class myEventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+class globalEventsNearMeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
     
     @IBOutlet weak var tableView: UITableView!
     
-    
-    var myEvents = [PFObject]()
+    var events = [PFObject]()
     
     var geoCoder: CLGeocoder!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         tableView.delegate = self
         
@@ -31,21 +26,21 @@ class myEventsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.layer.borderColor = UIColor.grayColor().CGColor
         tableView.layer.borderWidth = 2
         
-        
         let nib = UINib(nibName: "eventTableCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "eventCell")
         
         geoCoder = CLGeocoder()
         
+        let userGeopoint = PFUser.currentUser()!["location"] as! PFGeoPoint
         let query = PFQuery(className: "event")
-        query.whereKey("parent", equalTo: PFUser.currentUser()!)
+        query.whereKey("location", nearGeoPoint: userGeopoint)
         query.orderByDescending("createdAt")
         query.includeKey("parent")
         query.findObjectsInBackgroundWithBlock { (events, error) -> Void in
             if error == nil {
                 //success fetching events
                 for event in events! {
-                    self.myEvents.append(event)
+                    self.events.append(event)
                 }
                 self.tableView.reloadData()
                 
@@ -76,15 +71,15 @@ class myEventsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myEvents.count
+        return events.count
     }
     
     func tableView(tableView: UITableView,  cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell:eventTableCellClass = tableView.dequeueReusableCellWithIdentifier("eventCell") as! eventTableCellClass
         
-        if myEvents.count > 0 {
-            let event = myEvents[indexPath.row]
+        if events.count > 0 {
+            let event = events[indexPath.row]
             var eventUser = event["parent"] as! PFUser
             let query = PFQuery(className: "_User")
             query.whereKey("objectId", equalTo: eventUser.objectId!)
@@ -95,14 +90,14 @@ class myEventsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             let userName = eventUser["username"] as! String
-
+            
             //let eventLocation = event["location"]
             
             //let eventCLLocation = CLLocation(latitude: eventLocation.latitude, longitude: eventLocation.longitude)
             
             let eventLocationString = event["locationString"] as! String
             
-        
+            
             cell.userLabel.text = userName
             cell.eventLabel.text = event["name"] as? String
             cell.locationLabel.text = eventLocationString
@@ -110,5 +105,5 @@ class myEventsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return cell
     }
-
+    
 }

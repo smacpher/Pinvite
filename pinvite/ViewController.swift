@@ -169,7 +169,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 query.whereKey("location", nearGeoPoint: userGeoPoint)
                 
                 query.limit = 10
-                
+                query.includeKey("parent")
                 query.findObjectsInBackgroundWithBlock({(objects, error)-> Void in
                     
                     if error == nil {
@@ -179,13 +179,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                             
                             let location = event["location"]
                             let name = event["name"] as! String
+                            var eventUser = event["parent"] as! PFUser
+                            let query = PFQuery(className: "_User")
+                            query.whereKey("objectId", equalTo: eventUser.objectId!)
+                            query.findObjectsInBackgroundWithBlock { (users, error) -> Void in
+                                if error == nil {
+                                    eventUser = (users![0]) as! PFUser
+                                }
+                            }
+                            
+                            let userName = eventUser["username"] as! String
                             
                             let coord = CLLocationCoordinate2DMake(location.latitude, location.longitude)
                             
                             let annotation = MKPointAnnotation()
                             annotation.coordinate = coord
                             annotation.title = name
-                            
+                            annotation.subtitle = userName
                             self.mapView.addAnnotation(annotation)
                             
                         }
