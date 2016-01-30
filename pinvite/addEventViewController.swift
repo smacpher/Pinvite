@@ -42,8 +42,9 @@ class addEventViewController: UIViewController, UIPopoverPresentationControllerD
         newEvent["name"] = eventName.text
         newEvent["location"] = point
         newEvent["parent"] = user
-        newEvent["locationString"] = self.address1 + self.address2
+        newEvent["locationString"] = self.address1 + ", " +  self.address2
         newEvent.saveInBackground()
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

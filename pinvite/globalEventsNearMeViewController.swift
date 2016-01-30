@@ -17,7 +17,6 @@ class globalEventsNearMeViewController: UIViewController, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         tableView.delegate = self
         
         tableView.dataSource = self
@@ -51,6 +50,7 @@ class globalEventsNearMeViewController: UIViewController, UITableViewDataSource,
         
     }
     
+        
     func geoCode(location: CLLocation!) {
         geoCoder.cancelGeocode()
         geoCoder.reverseGeocodeLocation(location, completionHandler: { (data, error) -> Void in
@@ -101,6 +101,26 @@ class globalEventsNearMeViewController: UIViewController, UITableViewDataSource,
             cell.userLabel.text = userName
             cell.eventLabel.text = event["name"] as? String
             cell.locationLabel.text = eventLocationString
+            
+            if (PFUser.currentUser()!["profilePicture"]) != nil{
+                let profileImage:PFFile = eventUser["profilePicture"] as! PFFile
+                
+                profileImage.getDataInBackgroundWithBlock{ (imageData:NSData?, error:NSError?)->Void in
+                    if (error == nil){
+                        let profileImage:UIImage = UIImage(data: (imageData)!)!
+                        cell.userImage.image = profileImage
+                    }
+                }
+            }
+            
+            cell.userImage.layer.cornerRadius = cell.userImage.frame.size.width/2
+            
+            cell.userImage.clipsToBounds = true
+            
+            cell.userImage.layer.borderColor = UIColor.grayColor().CGColor
+            
+            cell.userImage.layer.borderWidth = 3
+
         }
         
         return cell

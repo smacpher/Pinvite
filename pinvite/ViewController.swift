@@ -230,7 +230,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         self.mapView.setRegion(region, animated: true)
         
-        
         self.locationManager.stopUpdatingLocation()
         
     }

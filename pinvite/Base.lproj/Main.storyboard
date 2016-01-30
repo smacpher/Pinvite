@@ -431,7 +431,7 @@
                         <color key="backgroundColor" red="0.30196078431372547" green="0.73725490196078436" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.30196078430000001" green="0.73725490199999999" blue="0.91372549020000005" alpha="0.75" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Home" id="Xeh-QN-rnZ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Search" id="Xeh-QN-rnZ">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xeh-QN-rnZ" id="56Q-0b-Vi5">
@@ -439,10 +439,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="YvN-pl-e2Y" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Wgx-5b-PSS"/>
+                                    <segue destination="XmT-qL-g4e" kind="custom" identifier="Search" customClass="SWRevealViewControllerSeguePushController" id="W4y-oa-6d6"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Profile" id="7rv-OE-i8S">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Home" id="7rv-OE-i8S">
                                 <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="7rv-OE-i8S" id="wGo-1c-0TS">
@@ -450,10 +450,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="wvS-ke-nAW" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="vTG-fv-Sph"/>
+                                    <segue destination="YvN-pl-e2Y" kind="custom" identifier="Home" customClass="SWRevealViewControllerSeguePushController" id="3n2-gm-KsS"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Logout" id="M4V-a6-8Zg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Profile" id="M4V-a6-8Zg">
                                 <rect key="frame" x="0.0" y="116" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="M4V-a6-8Zg" id="q0B-gd-fgc">
@@ -461,7 +461,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="YvN-pl-e2Y" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="dmD-vf-QUI"/>
+                                    <segue destination="wvS-ke-nAW" kind="custom" identifier="Profile" customClass="SWRevealViewControllerSeguePushController" id="94q-BY-BnG"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Logout" id="gGS-bG-93t">
+                                <rect key="frame" x="0.0" y="160" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="gGS-bG-93t" id="QqA-0c-R7w">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="YvN-pl-e2Y" kind="custom" identifier="Logout" customClass="SWRevealViewControllerSeguePushController" id="vcZ-pq-ivm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -474,6 +485,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kg4-pT-K9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="355" y="-1397"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="hAL-96-EZp">
+            <objects>
+                <viewController id="J6c-eQ-5xN" customClass="searchViewController" customModule="pinvite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Igf-Wa-0AN"/>
+                        <viewControllerLayoutGuide type="bottom" id="ztT-J6-AB3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a19-fq-JqM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="oqO-jB-DBI">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="J6c-eQ-5xN" id="bIx-Ck-n93"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oqO-jB-DBI" secondAttribute="trailing" id="9XK-Is-6RZ"/>
+                            <constraint firstItem="oqO-jB-DBI" firstAttribute="leading" secondItem="a19-fq-JqM" secondAttribute="leading" id="VR8-Li-0j5"/>
+                            <constraint firstItem="oqO-jB-DBI" firstAttribute="top" secondItem="Igf-Wa-0AN" secondAttribute="bottom" id="fnE-hM-Gvx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lf4-iV-9EZ">
+                        <barButtonItem key="leftBarButtonItem" image="navBarIcon" id="4Ru-BD-qGV">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="Open" destination="4Ru-BD-qGV" id="gBb-Dh-gNk"/>
+                        <outlet property="searchDisplayController" destination="ROj-SF-hYW" id="ftz-U4-N35"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5qC-6b-kzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="ROj-SF-hYW">
+                    <connections>
+                        <outlet property="delegate" destination="J6c-eQ-5xN" id="J8P-jY-0Nc"/>
+                        <outlet property="searchBar" destination="oqO-jB-DBI" id="wty-xR-xwi"/>
+                        <outlet property="searchContentsController" destination="J6c-eQ-5xN" id="bNQ-9w-80q"/>
+                        <outlet property="searchResultsDataSource" destination="J6c-eQ-5xN" id="0s6-vf-R64"/>
+                        <outlet property="searchResultsDelegate" destination="J6c-eQ-5xN" id="xKF-h9-tkE"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-442" y="-2118"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dlt-pm-x9c">
@@ -489,7 +550,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTg-Tz-CTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="355" y="-2114"/>
+            <point key="canvasLocation" x="1167" y="-2114"/>
         </scene>
         <!--Profile-->
         <scene sceneID="LmQ-yk-AoU">
@@ -585,7 +646,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IwC-dN-i5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="-2076"/>
+            <point key="canvasLocation" x="1835" y="-2076"/>
         </scene>
         <!--Profile Container View Controller-->
         <scene sceneID="7am-SU-EIc">
@@ -758,7 +819,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7my-S9-axO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="-2614"/>
+            <point key="canvasLocation" x="2595" y="-2614"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1bg-hc-dSz">
@@ -776,7 +837,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uz5-gf-4p8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="-2253"/>
+            <point key="canvasLocation" x="2595" y="-2253"/>
         </scene>
         <!--My Events View Controller-->
         <scene sceneID="62z-za-rZn">
@@ -823,7 +884,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yhv-GU-0aN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="-1868"/>
+            <point key="canvasLocation" x="2595" y="-1868"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EZM-nu-oHU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XmT-qL-g4e" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="S2F-hZ-zV0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="J6c-eQ-5xN" kind="relationship" relationship="rootViewController" id="eiu-Mo-ccg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wrB-Mv-gkL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="355" y="-2118"/>
         </scene>
     </scenes>
     <resources>
@@ -835,6 +914,6 @@
         <image name="pin.png" width="248" height="450"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dmD-vf-QUI"/>
+        <segue reference="vcZ-pq-ivm"/>
     </inferredMetricsTieBreakers>
 </document>

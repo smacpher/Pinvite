@@ -42,7 +42,23 @@ class ProfileContainerViewController: UIViewController, UIImagePickerControllerD
         self.Username.text = PFUser.currentUser()?.username
         
         
+        let gesture = UITapGestureRecognizer(target: self, action: "toggle:")
+        view.userInteractionEnabled = true
+        view.addGestureRecognizer(gesture)
     }
+    
+    func toggle(sender: AnyObject) {
+        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true)
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return navigationController?.navigationBarHidden == true
+    }
+    
+    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+        return UIStatusBarAnimation.Slide
+    }
+
     
     @IBAction func AddPhoto(sender: AnyObject) {
         
@@ -53,7 +69,6 @@ class ProfileContainerViewController: UIViewController, UIImagePickerControllerD
         photoPicker.sourceType = .PhotoLibrary
         
         self.presentViewController(photoPicker, animated: true, completion: nil)
-        
         
     }
     

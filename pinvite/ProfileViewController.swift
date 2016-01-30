@@ -42,8 +42,35 @@ class ProfileViewController: UIViewController {
         myFriendsEventsFeed.hidden = true
         eventsNearMeFeed.hidden = false
         profileView.hidden = false
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRight)
+
     }
     
+    func respondToSwipeGesture(gestureReconizer: UISwipeGestureRecognizer) {
+        if let swipeGesture = gestureReconizer as? UISwipeGestureRecognizer {
+            
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.Right:
+                
+                if self.segmentedControl.selectedSegmentIndex > 0{
+                    self.segmentedControl.selectedSegmentIndex -= 1
+                }
+
+            case UISwipeGestureRecognizerDirection.Left:
+                
+                if self.segmentedControl.selectedSegmentIndex < 2 {
+                    self.segmentedControl.selectedSegmentIndex += 1
+                }
+            default:
+                break
+            }
+        }
+    }
+
     @IBAction func changePages(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:

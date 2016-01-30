@@ -12,6 +12,7 @@ import Parse
 
 class eventTableCellClass: UITableViewCell {
     
+    @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
 
     @IBOutlet weak var eventLabel: UILabel!
