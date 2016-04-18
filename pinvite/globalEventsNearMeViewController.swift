@@ -22,8 +22,6 @@ class globalEventsNearMeViewController: UIViewController, UITableViewDataSource,
         tableView.dataSource = self
         
         tableView.layer.masksToBounds = true
-        tableView.layer.borderColor = UIColor.grayColor().CGColor
-        tableView.layer.borderWidth = 2
         
         let nib = UINib(nibName: "eventTableCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "eventCell")

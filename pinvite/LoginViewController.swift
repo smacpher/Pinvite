@@ -12,8 +12,10 @@ import Parse
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var txtUser: UITextField!
+    
 
     @IBOutlet weak var txtPass: UITextField!
+    
     
     var actInd: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0,150,150)) as UIActivityIndicatorView
     
@@ -59,7 +61,6 @@ class LoginViewController: UIViewController {
             
             if ((user) != nil) {
                 self.dismissViewControllerAnimated(true, completion: nil)
-                
             }else {
                 let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "Ok", style: .Default, handler:nil)

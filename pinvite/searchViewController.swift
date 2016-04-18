@@ -13,7 +13,6 @@ import UIKit
 class searchViewController: UIViewController {
     
     @IBOutlet weak var Open: UIBarButtonItem!
-    
 
     
     override func viewDidLoad() {
